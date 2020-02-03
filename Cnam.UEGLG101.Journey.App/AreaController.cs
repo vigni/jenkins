@@ -13,6 +13,7 @@ namespace Cnam.UEGLG101.Journey.App
     public class AreaController : ApiController
     {
         private GeoCoordinate _currentLocation;
+        private string[] _tokens = new[] { "token", "token1", "token2" };
 
         public AreaController()
         {
@@ -68,16 +69,19 @@ namespace Cnam.UEGLG101.Journey.App
         {
             return Request.RequestUri.Query.Replace("?api_key=", "");
         }
-        private bool IsValidToken(string token)
+        private bool IsValidToken()
         {
-            var tokens = new[] { "token", "token1", "token2" };
-            return tokens.Contains(token);
+            return _tokens.Contains(Request?.Headers?.Authorization?.Scheme);
         }
 
         public IHttpActionResult SafeRunHttpAction(Func<IHttpActionResult> getDatas)
         {
             try
             {
+                if(!IsValidToken())
+                {
+                    return Unauthorized();
+                }
                 return getDatas();
             }
             catch (Exception exception)
