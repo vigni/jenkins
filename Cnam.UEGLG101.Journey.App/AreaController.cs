@@ -43,7 +43,7 @@ namespace Cnam.UEGLG101.Journey.App
                     return BadRequest($"Invalid department id : '{idDepartment}'");
                 }
                 var enumerable = from area in AreaRepository.Current.Areas
-                                 where area.PostalCode.StartsWith(idDepartment)
+                                 where area != null && area.PostalCode.StartsWith(idDepartment)
                                  select area;
                 return Ok(enumerable);
             });
@@ -51,7 +51,7 @@ namespace Cnam.UEGLG101.Journey.App
         
         [Route("Distance/{distance}")]
         [HttpGet]
-        public IHttpActionResult GetAreaByDistance(int distance)
+        public IHttpActionResult GetAreasByDistance(int distance)
         {
             return SafeRunHttpAction(() =>
             {

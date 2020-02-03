@@ -44,7 +44,7 @@ namespace Cnam.UEGLG101.Journey.Data
         private static string[] ReadAreaFile()
         {
             return File.ReadAllLines(
-                @"areas.csv");
+                @"C:\Users\Vigni\source\repos\jenkins\Cnam.UEGLG101.Journey.Data\Cnam.UEGLG101.Journey.Data\areas.csv");
         }
     }
 }

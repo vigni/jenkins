@@ -1,0 +1,9 @@
+<NUnitProject>
+  <Settings activeconfig="Debug"/>
+  <Config name="Debug">
+    <assembly path="Cnam.UEGLG101.Journey.Data\Cnam.UEGLG101.Journey.Tests\bin\Debug\Cnam.UEGLG101.Journey.Tests.dll"/>
+  </Config>
+  <Config name="Release">
+    <assembly path="Cnam.UEGLG101.Journey.Data\Cnam.UEGLG101.Journey.Tests\bin\Release\Cnam.UEGLG101.Journey.Tests.dll"/>
+  </Config>
+</NUnitProject>
